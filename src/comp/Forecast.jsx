@@ -4,6 +4,7 @@ const Forecast = ({ country, temp, city, date, time }) => {
   return (
     <div className="forecast-card row">
       <div className="">
+      
         <img className="forecast-img" src="./bg01.jpg" alt="background" />
       </div>
 
@@ -18,8 +19,8 @@ const Forecast = ({ country, temp, city, date, time }) => {
         <h3 className="small left">{date}</h3>
       </div>
 
-      <div className="forecast-info right">
-        <img className="forecast-icon" src="../cloudy.png" alt="status-icon" />
+      <div className="forecast-info">
+      <i class="qi-few-clouds forecast-icon right"></i>
       </div>
     </div>
   );

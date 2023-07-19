@@ -1,12 +1,15 @@
 import React from "react";
 
+
+
 const Card = ({heading, title, subTitle}) => {
   return (
     <div>
       <div className="relative">
         <div className="info row glass">
           <div>
-            <img className="icon" src="../cloudy.png" alt="status-icon" />
+          <i className="qi-cloudy icon"></i>
+            {/* <img className="icon" src="../cloudy.png" alt="status-icon" /> */}
           </div>
           <div>
           
