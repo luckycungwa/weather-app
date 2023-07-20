@@ -2,13 +2,13 @@ import React from "react";
 
 
 
-const Card = ({heading, title, subTitle}) => {
+const Card = ({heading, title, subTitle, country, temp, city, date, time, iconClass}) => {
   return (
     <div>
       <div className="relative">
         <div className="info row glass">
           <div>
-          <i className="qi-cloudy icon"></i>
+          <i className={iconClass}></i>
             {/* <img className="icon" src="../cloudy.png" alt="status-icon" /> */}
           </div>
           <div>
@@ -17,7 +17,8 @@ const Card = ({heading, title, subTitle}) => {
             <br />
             <br />
             <p className="large">
-              {title} <span className="medium">{subTitle}</span>
+              {title} 
+              <span className="medium">{subTitle}</span>
             </p>
 
           </div>

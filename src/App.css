@@ -149,7 +149,6 @@ p {
 }
 
 .forecast-info {
-  justify-content: center;
   gap: 12px;
   padding: 0 6%;
   position: absolute;
@@ -161,7 +160,7 @@ p {
   margin: 0;
   position: absolute;
   font-size: 240px;
- ;
+ 
 }
 
 /* OTHER STYLES */
@@ -210,38 +209,36 @@ p {
 
 /* Search box design styles here */
 .search-input {
-  color: white;
+  color: #1d1d1d;
   text-decoration: none;
-  border: 2px solid #2e2e2e;
-  background: transparent;
+  border-bottom: 2px solid #2e2e2e;
+  background-color: #fff ;
   padding: 12px;
   height: 1vh;
   display: inline-flex;
-  position: relative;
   align-items: center;
   overflow:hidden;
-  width: auto;
-  max-width: 42px; /** I'm animating max-width because width needs to be auto, and auto can't be animated **/
+  width: 200px;
+  
   color: #323232;
-  letter-spacing: 1px;
-  -webkit-transition: max-width 0.5s;
-  transition: all 0.6s;
+  letter-spacing: .6px;
 }
 
 .search-input:hover  {
   max-width: 250px;
+  border-bottom: 2px solid #1d1d1d;
 }
 .search-input:focus  {
   max-width: 250px;
 }
 
 input {
-  background-color: #fbfbff;
+  background-color: #f4f4f4;
   padding: 8px;
   margin: 0px;
   appearance: 0;
   color: #222;
-  border-radius: 8px;
+  border-radius: 0px;
   flex: auto;
 }
 
@@ -255,7 +252,21 @@ input {
   float: right;
   text-align: right;
   justify-content: end;
-  position: absolute;
   
 }
 
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+
+.search-bar {
+  float: right;
+  top: 24px;
+  right: 8px;
+  position: absolute;
+}
