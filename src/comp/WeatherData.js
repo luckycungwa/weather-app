@@ -7,7 +7,7 @@ const WeatherData = (myCity) => {
   const [weatherInfo, setWeatherInfo] = useState();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [weatherIcon, setWeatherIcon] = useState(null);
+  //  const [weatherIcon, setWeatherIcon] = useState(null);
 
 
   // USING FETCH APPROACH
@@ -22,13 +22,6 @@ const WeatherData = (myCity) => {
       apiKey;
 
     try {
-      // fetch weather icons with corresponding weather details
-      const { weather } = data;
-      
-    if (weather && weather.length > 0) {
-      setWeatherIcon(weather[0].icon); // Set the weather icon code
-    }
-      // 
       const response = await fetch(apiUrl);
       if (!response.ok) {
         throw new Error("Network response was not ok");
@@ -53,11 +46,11 @@ const WeatherData = (myCity) => {
   const refetch = () => {
     fetchData();
   };
-
+// display loading screen or something while fetching data
   if (!weatherInfo) {
-    // display loading screen or something while fetching data
-    return <div>Please wait, Loading...</div>;
+    return <div>Fetching weather data...</div>;
   }
+
   // DISPLAY FETCHED DATA FROM THE API
   return { weatherInfo, refetch, loading, error };
 };

@@ -19,10 +19,6 @@ const Forecast = () => {
     return <div>Error: {error.message}</div>;
   }
 
-  // creating a url for icons
-  const iconUrl = weatherIcon
-    ? `http://openweathermap.org/img/w/${weatherIcon}.png`
-    : null;
   // Extract relevant data from weatherData
   // referencing external api handling script
 
@@ -32,9 +28,12 @@ const Forecast = () => {
   const humidity = main?.humidity; // Humidity percentage
   const windSpeed = wind?.speed; // Wind speed in meters per second (m/s)
   const cloudiness = weatherInfo?.clouds?.all; // Cloudiness percentage
-  const weatherDescription = weatherInfo?.weather[0]?.description; //extracting the description
+  const weatherDescription = weatherInfo?.weather[0]?.description; //extracting the description if available
   const cityName = weatherInfo?.name; // Extract name o fthe city
-  const weatherIcon = weatherInfo?.weather[0]?.icon;
+   // creating a url for icons
+  //  const iconCode = weatherInfo.weather[0]?.icon;
+  //  const iconUrl = iconCode ? 'https://openweathermap.org/img/wn/' + iconCode + '.png' : null;
+  // const iconUrl = `https://openweathermap.org/img/wn/${iconCode}.png`;
 
   const { country, sunrise, sunset } = sys || {};
   const date = new Date(dt * 1000).toDateString();
@@ -52,15 +51,6 @@ const Forecast = () => {
 
   const sunriseTime = formatTimeTo24Hour(sunrise);
   const sunsetTime = formatTimeTo24Hour(sunset);
-
-  // Handle search submission
-  const handleKeyPress = (e) => {
-    if (e.key === "Enter") {
-      if (myCity.trim() !== "") {
-        refetch();
-      }
-    }
-  };
 
   // handle button click
   const handleSearch = (cityName) => {
@@ -110,6 +100,7 @@ const handleFahrenheitClick = () => {
           <span className="name">Fahrenheit (°F)</span>
         </label>
       </div>
+
       <div className="app-container glass">
         <div className="forecast-card row">
           <div className="">
@@ -163,12 +154,12 @@ const handleFahrenheitClick = () => {
             <p className="medium">{weatherDescription}</p>
             {/* must convert figures into celcius/kelvin/ or farenheight */}
             <h1 className="temp-text row">
-              {`${temp}°C`}
-              {tempUnit === "celsius" ? `${temp}°C` : `${celsiusToFahrenheit(temp)}°F`}
-              <i className="qi-high-temperature temprature-icon" />
+            
+              {tempUnit === "celsius" ? `${celsiusToFahrenheit(temp)}°C` : `${fahrenheitToCelsius(temp)}°F`}
+              {/* <i className="qi-high-temperature temprature-icon" /> */}
               <div>
                 {/* Display the weather icon image */}
-                {weatherIcon && <img src={iconUrl} alt="Weather Icon" />}
+                
               </div>
             </h1>
 
